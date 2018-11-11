@@ -1,0 +1,23 @@
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="login.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+</head>
+<body>
+  <div id="main">
+    <i class="fa fa-user-circle fa-3x"></i>
+    <h1>Admin LogIn</h1>
+    <form method="POST" action="./adminlogin.php">
+      <input type="text" name="username" placeholder="Username" />
+      <i class="fa fa-user fa-lg" id="username"></i>
+      <input type="password" name="passwd" placeholder="Password" />
+      <i class="fa fa-lock fa-lg" id="passwd"></i>
+      <button type="submit" id="btnSgn">Sign In</button>
+      <button type="reset" id="btnRst">Reset</button>
+    </form>
+    
+  </div>
+</body>
+</html>

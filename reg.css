@@ -1,0 +1,90 @@
+body {
+  background: #0B486B;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #F56217, #0B486B);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #F56217, #0B486B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  text-align: center;
+  font-family: "Megatron";
+}
+
+#main{
+  width: 50%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 10px;
+  font-family: "Megatron";
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 5px;
+  align-content: center;
+  text-align: center;
+}
+
+input{
+  width: 100%;
+  background: transparent;
+  border-bottom: 2px solid white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: white;
+  padding: 10px;
+  font-family: "Megatron";
+  padding-right: 35px;
+}
+
+input:hover{
+  border-bottom: 3px solid white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+button{
+  width: 47%;
+  padding: 5px;
+  margin-bottom: 20px;
+  font-family: "Megatron";
+  border-radius: 5px;
+}
+
+button:hover{
+  opacity: 0.75;
+}
+
+#btnSgn{
+  background-color: green;
+  border-color: green;
+}
+
+#btnRst{
+  background-color: #e3e3e3;
+  border-color: #e3e3e3;
+}
+
+a{
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #e3e3e3;
+  font-size: 20px;
+}
+
+a:visited{
+  color: #aaaaaa;
+}
+
+#phText{
+  position: relative;
+  bottom: 10px;
+}
+
+#phTextBox{
+  text-align: center;
+}

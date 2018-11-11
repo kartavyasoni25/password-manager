@@ -1,0 +1,204 @@
+<html>
+<head>
+  <script src="https://www.google.com/recaptcha/api.js" ></script>
+  <link rel="stylesheet" type="text/css" href="reg.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  </head>
+<style>
+/* Style all input fields */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+    background-color: #0B486B;
+    color: white;
+}
+
+/* Style the container for inputs */
+.container {
+    background-color: #0B486B;
+    padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display:none;
+    background: -webkit-linear-gradient(to left, #F56217, #0B486B);;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}
+</style>
+<body>
+  <div id="main">
+    <i class="fa fa-user-circle fa-3x"></i>
+    <h1>Register</h1>
+    <form method="POST" action="./db1.php">
+      <table width="100%">
+        <tr width="100%">
+          <td>
+            <input type="text" name="fname" placeholder="First Name" />
+          </td>
+          <td>
+            <input type="text" name="lname" placeholder="Last Name" />
+          </td>
+        </tr>
+      </table>
+      <input type="text" name="uname" placeholder="Username" />
+      <table width="100%" id="ph" placeholder="Email-address">
+        <tr width="100%">
+          <td align-content="center" id="email" placeholder="Email-address">
+            <p id="email"></p>
+          </td>
+          <td>
+            <input type="text" id="email" name="email" placeholder="Email-address"/>
+          </td>
+        </tr>
+      </table>
+      <table width="100%">
+        <tr width="100%">
+          <td>
+            <input type="password" id="passwd" name="passwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Password" required>
+          </td>
+          <td>
+            Security Question
+            <select id="sq" name="sq" required="">
+              <option value="0">Favourite Food</option> 
+              <option value="1">Name of town where you were born</option> 
+              <option value="2">Best friend</option>
+          </select>
+           </td>
+           <td>
+             <input type="text" name="sa" id="sa" required>
+           </td>
+        </tr>
+      </table>
+
+      <button type="submit" id="btnSgn">Submit</button>
+      <button type="reset" id="btnRst">Reset</button>
+<div class="g-recaptcha" name="g-recaptcha" data-sitekey="6LfntG0UAAAAAJ3ZOiY086t1YBoJKW2mJT6LZdHw" required></div>
+    </form>
+    <a href="./" id="loginLink">Login</a>
+  </div>
+  <div id="my-signin2"></div>
+  <div id="message">
+
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>  
+ <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+    <script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>
+      <script>
+var myInput = document.getElementById("passwd");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+var chkPasswd = document.getElementById("chkPasswd");
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+    document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  if (g-recaptcha.getResponse() == ""){
+    alert("You can't proceed!");
+} else {
+    alert("Thank you");
+}
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+  
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+
+</body>
+</html>

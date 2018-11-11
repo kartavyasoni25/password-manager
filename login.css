@@ -1,0 +1,99 @@
+body {
+  background: #23074d;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #cc5333, #23074d);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #cc5333, #23074d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  color: white;
+  text-align: center;
+  font-family: "Baskerville Old Face";
+}
+
+#main{
+  width: 300px;
+  margin: auto;
+  margin-top: 100px;
+  border: 10px;
+  font-family: "Baskerville Old Face";
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 5px;
+  align-content: center;
+  text-align: center;
+}
+
+input{
+  width: 92%;
+  background: transparent;
+  border: 0px;
+  border: 2px solid white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: white;
+  padding: 10px;
+  font-family: "Baskerville Old Face";
+  padding-right: 35px;
+}
+
+input:hover{
+  border: 0px;
+  border: 3px solid white;
+}
+
+button{
+  width: 47%;
+  padding: 5px;
+  margin-bottom: 20px;
+  font-family: "Baskerville Old Face";
+  border-radius: 5px;
+}
+
+button:hover{
+  opacity: 0.75;
+}
+
+#btnSgn{
+  background-color: green;
+  border-color: green;
+  font-size: 40px;
+}
+
+#btnRst{
+  background-color: red;
+  border-color: red;
+  font-size: 40px;
+}
+
+#forgotLink{
+  float: left;
+  text-decoration: none;
+}
+
+#newLink{
+  float: right;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+a{
+  color: white;
+  font-size: 12px;
+}
+
+a:hover{
+  color: #e3e3e3;
+  font-size: 15px;
+}
+
+a:visited{
+  color: #aaaaaa;
+}
+
+#username{
+  position: relative;
+  right: 40px;
+}
+
+#passwd{
+  position: relative;
+  right: 40px;
+}

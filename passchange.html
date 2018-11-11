@@ -1,0 +1,102 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="login.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+</head>
+<style>
+    input[type=password], 
+    select {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid green;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background color:  #0B486B;
+}
+   input[type=text], 
+    select {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid green;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background color:  #0B486B;
+}
+</style>
+<body style="background-color: #0B486B">
+	<div style="text-align: center;"><form method="POST" action="forgot.php"><head><h1 style="background-color:gray"; align="center"></h1></head><br><br><div style="text-align: left;">
+		<b>Email&nbsp;:-</b>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+         <input type="text" name="email" placeholder="email"><br><br><br><b>Password:-</b> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<input name="psw" type="password" onkeyup="CheckPasswordStrength(this.value)" placeholder="password">
+		<span id="password_strength"></span>
+<script type="text/javascript">
+    function CheckPasswordStrength(password) 
+    {
+        var password_strength = document.getElementById("password_strength");
+        if (password.length == 0) {
+            password_strength.innerHTML = "Invalid Password";
+            return ;
+        }
+        var regex = new Array();
+        regex.push("[A-Z]"); 
+        regex.push("[a-z]"); 
+        regex.push("[0-9]"); 
+        regex.push("[$@$!%*#?&]"); 
+ 
+        var passed = 0;
+
+        for (var i = 0; i < regex.length; i++) 
+        {
+            if (new RegExp(regex[i]).test(password)) 
+            {
+                passed++;
+            }
+        }
+ 
+        
+        if (passed > 2 && password.length > 8) 
+        {
+            passed++;
+        }
+ 
+        var color = "";
+        var strength = "";
+        switch (passed) 
+        {
+            case 0:
+		      strength = "Invalid";
+		      break;
+            case 1:
+                strength = "Weak";
+                color = "blue";
+                break;
+            case 2:
+                strength = "Good";
+                color = "darkorange";
+                break;
+            case 3:
+            case 4:
+                strength = "Strong";
+                color = "green";
+                break;
+            case 5:
+                strength = "Very Strong";
+                color = "darkgreen";
+                break;
+        }
+        password_strength.innerHTML = strength;
+        password_strength.style.color = color;
+    }
+</script>
+<br><br><br><b>Password Again:-</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<input name="psw1" type="password" placeholder="password1"><br><br><br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <button name="submit" type="submit">Submit
+</button>
+	</div>
+</form>
+</div>
+</body>
+</html>
